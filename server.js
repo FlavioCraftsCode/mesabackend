@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
+const cors = require('cors'); // Importa o pacote CORS
 
 // Configuração do Banco de Dados usando variáveis de ambiente
 const db = mysql.createConnection({
@@ -25,7 +26,8 @@ db.connect(err => {
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Usando o body-parser para processar JSON
+// Middleware
+app.use(cors()); // Adiciona o CORS para permitir requisições de outros domínios
 app.use(bodyParser.json());
 
 // Rota raiz para evitar o erro "Cannot GET /"
