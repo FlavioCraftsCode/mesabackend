@@ -1,4 +1,3 @@
-// Carrega variáveis de ambiente
 require('dotenv').config();
 const express = require('express');
 const mysql = require('mysql2');
@@ -26,8 +25,10 @@ db.connect(err => {
 const app = express();
 const port = process.env.PORT || 3000;
 
+// Middleware para permitir requisições de qualquer origem
+app.use(cors()); // Permite requisições de todas as origens
+
 // Middleware
-app.use(cors()); // Adiciona o CORS para permitir requisições de outros domínios
 app.use(bodyParser.json());
 
 // Rota raiz para evitar o erro "Cannot GET /"
