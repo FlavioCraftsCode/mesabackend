@@ -4,9 +4,25 @@
         {
             "src": "server.js",
             "use": "@vercel/node"
+        },
+        {
+            "src": "check-availability.js",
+            "use": "@vercel/node"
+        },
+        {
+            "src": "reserve.js",
+            "use": "@vercel/node"
         }
     ],
     "routes": [
+        {
+            "src": "/check-availability",
+            "dest": "/check-availability.js"
+        },
+        {
+            "src": "/reserve",
+            "dest": "/reserve.js"
+        },
         {
             "src": "/(.*)",
             "dest": "/server.js"
