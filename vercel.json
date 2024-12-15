@@ -2,19 +2,11 @@
     "version": 2,
     "builds": [
         {
-            "src": "api/**/*.js",
+            "src": "server.js",
             "use": "@vercel/node"
         }
     ],
     "routes": [
-        {
-            "src": "/api/check-availability",
-            "dest": "/api/check-availability.js"
-        },
-        {
-            "src": "/api/reserve",
-            "dest": "/api/reserve.js"
-        },
         {
             "src": "/(.*)",
             "dest": "/server.js"
